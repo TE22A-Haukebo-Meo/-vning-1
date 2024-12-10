@@ -1,49 +1,27 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        if (6 >= 3) {
-            System.out.println("Hello, World!");
-        }
+        Random rand = new Random();
         Scanner tb = new Scanner(System.in);
-        String user = tb.nextLine();
-        String pass = tb.nextLine();
-        if (user.equalsIgnoreCase("noname") && pass.equalsIgnoreCase("nopass")) {
-            System.out.println("Welcome");
-        }
-        else{
-            System.out.println("Wrong username or password");
-        }
-        for (int i = 0; i < 32; i++) {
-            System.out.println("Hello, World");
-        }
-        Boolean correct = false;
-        while (!correct) {
-            pass = tb.nextLine();
-            if(pass.equalsIgnoreCase("nopass")){
-                System.out.println("Gudd");
-                correct=true;
-            }
-            else{
-                System.out.println("Wrong ty agin");
-            }
-        }
-        for (int i = 0; i < 5; i++) {
-            System.out.println("Gimme number");
-            String tal = tb.nextLine();
-            if (Integer.parseInt(tal) >5) {
-                System.out.println("Larger than 5");
-            }
-        }
-        boolean temp = false;
-        while (!temp) {
-            String bomba = tb.nextLine();
+        int answer = rand.nextInt(1,10);
+        int guess = 0;
+        while (guess != answer) {
+            System.out.println("Gimmenumber");
             try {
-                int nummer = Integer.parseInt(bomba);
-                temp = true;
+                guess = tb.nextInt();
+                if (guess > answer) {
+                    System.out.println("Too high");
+                }
+                else if (guess < answer) {
+                    System.out.println("Too low");
+                }
             } catch (Exception e) {
-                System.out.println("Incorrect! try agian");
+                System.out.println("So not sigma write number");
+                tb.nextLine();
             }
         }
+        System.out.println("GJ");
     }
 }
